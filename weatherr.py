@@ -33,7 +33,4 @@ visibility: {visibilty} km"""
         return det
 
     else:
-        print('We are unable to reach weather data right now, please try again later', response.status_code)
-
-
-print(find_weather())
+        return f"We are unable to reach weather data right now, please try again later, {response.status_code}"
