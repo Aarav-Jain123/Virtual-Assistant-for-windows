@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import pyaudio
 
 
 def takeCommand():
@@ -6,10 +7,11 @@ def takeCommand():
     with sr.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 2
-        audio = r.listen(source, phrase_time_limit=20) # phrase_time_limit
+        audio = r.listen(source=source, phrase_time_limit=20) # phrase_time_limit
     try:
         print('Translating...')
-        query = r.recognize_google(audio, language='en-us')
-        print(query)
+        query = r.recognize_google(audio, language='en-in')
+        print(f"{query}")
     except Exception as e:
-        print('Say that again please...')
+        print("A problem has occured, please try again. We are trying our best to fix it.")
+    return query

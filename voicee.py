@@ -7,12 +7,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
 
-def speak(audio):
-    engine.say(audio)
+def speak(text):
+    engine.say(text)
     engine.runAndWait()
-
-
-# testing 
-engine.say("My first code on text-to-speech") 
-engine.say("Thank you, Geeksforgeeks") 
-engine.runAndWait() 
+    
