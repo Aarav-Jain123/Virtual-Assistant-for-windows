@@ -1,0 +1,434 @@
+{% extends 'homeother/base.html'%}
+{% block title%}New of India {% endblock %}
+{% block content %}
+<div class="py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/newspage/" class="d-flex align-items-center text-dark text-decoration-none">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg> -->
+        <span class="fs-4">New of India | Indigo</span>
+      </a>
+    </header>
+    <!-- <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/taj mahal.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>News of India...</h5>
+            <p>Can be news of the whole world.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/static/kerala.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>A devloping country...</h5>
+            <p>Will always have love for you.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/static/indiaflag.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>We all...</h5>
+            <p>Adore India.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> -->
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title2}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author2}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc2}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link2}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title3}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author3}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc3}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link3}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title4}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author4}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc4}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link4}} target="_main" target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title5}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author5}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc5}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link5}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title6}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author6}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc6}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link6}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title7}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author7}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc7}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link7}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title8}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author8}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc8}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link8}} target="_main" target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title9}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author9}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc9}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link9}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title10}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author10}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc10}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link10}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title11}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author11}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc11}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link11}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title12}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author12}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc12}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link12}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title13}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author13}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc13}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link13}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title14}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author14}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc14}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link14}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title15}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author15}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc15}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link15}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title16}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author16}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc16}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link16}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title17}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author17}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc17}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link17}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title18}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author18}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc18}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link18}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title19}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author19}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc19}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link19}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="container my-3">
+            <h5 class="card-title">Title: {{title20}}</h5>
+          </div>
+          <div class="container my-3">
+            <h6 class="card-subtitle text-body-secondary">Author: {{author20}}</h6>
+          </div>
+          <div class="container my-3">
+            <p class="card-text">Description: {{desc20}}</p>
+          </div>
+          <div class="container my-3">
+            <a href={{link20}} target="_main" class="btn btn-outline-primary" type="button">Go to news</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
