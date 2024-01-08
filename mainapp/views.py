@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import extractnews
+from . import locationdata
 
 
 # Create your views here.
@@ -16,7 +16,7 @@ def signup(request):
 
 
 def indian_news_page(request):
-    return render(request, 'homeother/newspage.html', context=extractnews.main)
+    return render(request, 'homeother/newspage.html', context=locationdata.main)
 
 
 def send_otp_to_user(request):
