@@ -1,5 +1,45 @@
 {% extends 'homeother/base.html'%}
 {% block content %}
-<h1>Login</h1>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+
+<h1 style="text-align: center;">Indigo</h1>
+<p style="text-align: center;">Welcome back user! Make the full use of Indigo on your other Windows PCs as well!</p>
+<div class="container min-vh-100 justify-content-center align-items-center">
+    <form method="post">
+        {%csrf_token%}
+        <div class="form-group mb-3">
+            <label for="email">E-mail</label>
+            <input type="text" class="form-control" id="email" name='email' placeholder="Username">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="ppassword">Password</label>
+            <input type="password" class="form-control" id="ppassword" name='ppassword' placeholder="Password">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="comfirm-password">Comfirm password</label>
+            <input type="password" class="form-control" id="comfirm-password" name='comfirm-password'
+                placeholder="Comfirm password">
+        </div>
+
+        <div id="emailHelp" class="form-text">Don't have an account at Pistils? <a href='/signup/'>Make one
+                now</a></div>
+
+        <div id="emailHelp" class="form-text">Forgot password? <a href='/forgot-password/'>Click here.</a></div>
+        <div class="form-group text-center mb-3">
+            <button type="submit" class="btn btn-primary">Get OTP</button>
+        </div>
+
+</div>
+
+</form>
 {% endblock %}
 {% block title%} Welcome back {% endblock %}
