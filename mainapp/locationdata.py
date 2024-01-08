@@ -14,6 +14,7 @@ tempc = weatherr.tempC
 tempf = weatherr.tempF
 humidity_ = weatherr.humidity
 visibility_ = weatherr.visibilty
+weather_desc = weatherr.weather_desc
 
 title_ = weatherr.title
 hours_ = datetime.datetime.now().hour
@@ -125,6 +126,7 @@ main = {
 'tempf': tempf,
 'humidity': humidity_,
 'visibility':  visibility_,
+'weather_desc': weather_desc,
 
 'title_': title_,
 'time': f'{hours_}:{mins}',
