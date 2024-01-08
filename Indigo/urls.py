@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')),
     path('signup/', include('mainapp.urls')),
-    # path('login/', include('mainapp.urls')),
+    path('login/', include('mainapp.urls')),
     path('newspage/', include('mainapp.urls')),
     path('otp/', include('mainapp.urls'))
 ]

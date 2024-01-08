@@ -2,6 +2,8 @@ from . import indianNewsPuller
 from . import weatherr
 import datetime
 
+location = weatherr.city
+
 title = indianNewsPuller.news_title
 author = indianNewsPuller.news_author
 desc = indianNewsPuller.news_desc
@@ -14,9 +16,8 @@ humidity_ = weatherr.humidity
 visibility_ = weatherr.visibilty
 
 title_ = weatherr.title
-day_ = datetime.datetime.now().day
-hours_ = weatherr.hours
-mins = datetime.datetime.now().min
+hours_ = datetime.datetime.now().hour
+mins = datetime.datetime.now().minute
 
 main = {
 "title": title[0],
@@ -125,7 +126,7 @@ main = {
 'humidity': humidity_,
 'visibility':  visibility_,
 
-'title': title_,
-'day': day_,
+'title_': title_,
 'time': f'{hours_}:{mins}',
+'locationofuser': {location}
 }
