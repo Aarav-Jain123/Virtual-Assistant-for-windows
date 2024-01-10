@@ -37,4 +37,3 @@ for all_links in range(1):
 
 for i in range(0, 20):
     main = f'{i+1} | TITLE: {news_title[i]} | AUTHOR: {news_author[i]} | DESCRIPTION: {news_desc[i]} | URL: {news_link[i]}'
-    print(main)

@@ -10,4 +10,6 @@ engine.setProperty('voice', voices[0].id)
 def speak(text):
     engine.say(text)
     engine.runAndWait()
-    
+
+
+speak('Hello world!')

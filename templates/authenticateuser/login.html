@@ -10,7 +10,7 @@
 {% endif %}
 
 <h1 style="text-align: center;">Indigo</h1>
-<p style="text-align: center;">Welcome back user! Make the full use of Indigo on your other Windows PCs as well!</p>
+<p style="text-align: center;">Welcome back user! Make the full use of Indigo on your other PCs as well!</p>
 <div class="container min-vh-100 justify-content-center align-items-center">
     <form method="post">
         {%csrf_token%}
@@ -21,16 +21,16 @@
 
         <div class="form-group mb-3">
             <label for="ppassword">Password</label>
-            <input type="password" class="form-control" id="ppassword" name='ppassword' placeholder="Password">
+            <input type="text" class="form-control" id="ppassword" name='ppassword' placeholder="Password">
         </div>
 
         <div class="form-group mb-3">
             <label for="comfirm-password">Comfirm password</label>
-            <input type="password" class="form-control" id="comfirm-password" name='comfirm-password'
+            <input type="text" class="form-control" id="comfirm-password" name='comfirm-password'
                 placeholder="Comfirm password">
         </div>
 
-        <div id="emailHelp" class="form-text">Don't have an account at Pistils? <a href='/signup/'>Make one
+        <div id="emailHelp" class="form-text">Don't have an account at Indigo? <a href='/signup/'>Make one
                 now</a></div>
 
         <div id="emailHelp" class="form-text">Forgot password? <a href='/forgot-password/'>Click here.</a></div>
