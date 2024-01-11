@@ -69,4 +69,4 @@ def otp_page(request):
 
 
 def other_details(request):
-    pass
+    return render(request, 'authenticateuser/otherdetails.html')

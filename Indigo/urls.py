@@ -24,5 +24,6 @@ urlpatterns = [
     path('login/', include('mainapp.urls')),
     path('newspage/', include('mainapp.urls')),
     path('otp/', include('mainapp.urls')),
-    path('logout/', include('mainapp.urls'))
+    path('logout/', include('mainapp.urls')),
+    path('otherdetails', include('mainapp.urls'))
 ]
