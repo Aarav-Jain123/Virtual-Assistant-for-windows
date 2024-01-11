@@ -6,6 +6,6 @@ urlpatterns = [
     path('signup/', signup, name='Signup'),
     path('login/', loginn, name='Login'),
     path('newspage/', indian_news_page, name='News'),
-    path('otp/', send_otp_to_user, name="OTP"),
+    path('otp/', otp_page, name="OTP"),
     path('logout/', logoutt, name='Logout')
 ]

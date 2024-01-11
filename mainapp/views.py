@@ -1,18 +1,28 @@
 from django.shortcuts import render, redirect
-from . import locationdata
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from . import locationdata, otherfuncs
+from django.contrib.auth import logout
+from .models import *
 
+# Basic Authentication
 name_of_user = None
 email_of_user = None
 password_of_user = None
-token_or_otp = None
+token = None
 check_user = None
+
+# After authentication
+pin_code = None
+city = None
+state = None
+country = None
 
 
 def index(request):
     if request.user.is_anonymous:
         return redirect('signup/')
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        otherfuncs.verify_user(request=request, name=name_of_user, username=email_of_user, password=password_of_user, otp=otp)
     return render(request, 'homeother/index.html')
 
 
@@ -44,6 +54,7 @@ def otp_page(request):
     global email_of_user
     global password_of_user
     global check_user
+    global token
 
     if not request.user.is_anonymous:
         return redirect('/')
@@ -52,17 +63,10 @@ def otp_page(request):
         email_of_user = request.POST['email']
         password_of_user = request.POST['ppassword']
         comfirm_password = request.POST['comfirm-password']
-        
-        if len(password_of_user) < 8:
-            messages.error(request, 'Password should be at least of 8 characters.')
-            return redirect('signup/')
-        
-        if password_of_user != comfirm_password:
-            messages.error(request, 'Password and comfirm password fields are not equal.')
-            return redirect('signup/')
-        
-        check_user = authenticate(username=email_of_user, password=password_of_user)
-        if check_user is not None:
-            login(request, check_user)
-            messages.success(request, 'A')
+
+        otherfuncs.basic_authentication_conditions(request, name_of_user, email_of_user, password_of_user, comfirm_password)
     return render(request, 'authenticateuser/otp.html')
+
+
+def other_details(request):
+    pass

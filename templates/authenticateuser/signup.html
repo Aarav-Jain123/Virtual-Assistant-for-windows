@@ -9,9 +9,9 @@
     {% endfor %}
     {% endif %}
 
-    <h1 style="text-align: center;">Indigo</h1>
-    <p style="text-align: center;">Signup on Indigo to get the most of AI.</p>
-    <div class="min-vh-100 justify-content-center align-items-center">
+    <h1>Indigo</h1>
+    <p class="center-object">Signup on Indigo to get the most of AI.</p>
+    <div class="min-vh-100 justify-content-center align-items-center mt-5">
         <form method="post" action='/otp/'>
             {%csrf_token%}
 
@@ -27,12 +27,12 @@
 
             <div class="form-group mb-3">
                 <label for="ppassword">Password</label>
-                <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                <input type="text" class="form-control" id="ppassword" name='ppassword' placeholder="Password">
             </div>
 
             <div class="form-group mb-3">
                 <label for="comfirm-password">Comfirm password</label>
-                <input type="password" class="form-control" id="comfirm-password" name='comfirm-password'
+                <input type="text" class="form-control" id="comfirm-password" name='comfirm-password'
                     placeholder="Comfirm password">
             </div>
 

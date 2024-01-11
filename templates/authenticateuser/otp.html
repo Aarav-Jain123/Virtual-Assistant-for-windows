@@ -1,8 +1,8 @@
 {% extends 'homeother/base.html'%}
 {% block content %}
-<h1 style="text-align: center;">OTP</h1>
+<h1>OTP</h1>
 <div class="d-flex min-vh-100 justify-content-center align-items-center">
-    <form method="post">
+    <form method="post" action="/">
         {%csrf_token%}
         <div class="form-group mb-3">
             <label for="OTP">OTP</label>
