@@ -5,12 +5,14 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from random import randint
 from django.contrib.auth.models import User
+from .models import *
 
 tokenn = None
 name_of_user = None
 email_of_user = None
 password_of_user = None
 comfirm_password = None
+user = None
 
 
 def basic_authentication_conditions(request, *credentialss):
@@ -50,16 +52,26 @@ def send_otp(email, token):
 
 
 def check_if_in_user_spreadsheet(request, otp):
+    global name_of_user
+    global email_of_user
+    global password_of_user
+    global tokenn
+    global user
 
     if tokenn == otp:
         user = authenticate(username=email_of_user, password=password_of_user)
 
         if user is not None:
-            login(request, user=user)
             return redirect('/')
         
         if user is None:
-            user = User.objects.create_user(username=email_of_user, email=email_of_user, password=password_of_user, first_name=name_of_user)
+            user = User.objects.create_user(
+username=email_of_user, 
+email=email_of_user, 
+password=password_of_user, 
+first_name=name_of_user
+)
+            
             user.set_password(password_of_user)
             user.save()
             login(request, user)
@@ -67,3 +79,24 @@ def check_if_in_user_spreadsheet(request, otp):
     else:
         messages.error('Invalid otp.')
         return redirect('/')
+
+
+def verify_user(request, city, state, country, pin_code):
+    user_profile = UserProfile.objects.create(
+name=name_of_user, 
+username=email_of_user, 
+email=email_of_user, 
+password=password_of_user, 
+auth_token=tokenn, 
+is_verified=True, 
+country=country, 
+state=state, 
+city=city, 
+pin_code=pin_code
+)
+    
+    user_profile.save()
+    
+    login(request, user)
+
+    return redirect('/')

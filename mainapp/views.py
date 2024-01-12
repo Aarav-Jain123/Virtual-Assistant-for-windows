@@ -6,6 +6,12 @@ from django.contrib import messages
 
 
 def index(request):
+    if request.method == 'POST':
+        city = request.POST['city']
+        state = request.POST['state']
+        country = request.POST['country']
+        pin_code = request.POST['pin-code']
+        otherfuncs.verify_user(request, city, state, country, pin_code)
     if request.user.is_anonymous: return redirect('signup/')
     if request.user.is_anonymous and UserProfile.is_verified: return redirect('locationform/')
     return render(request, 'homeother/index.html')
