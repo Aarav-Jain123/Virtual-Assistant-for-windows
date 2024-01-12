@@ -11,7 +11,7 @@ class UserProfile(models.Model):
     country = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
-    pin_code = models.IntegerField(max_length=10)
+    pin_code = models.IntegerField()
 
 
     def __str__(self):

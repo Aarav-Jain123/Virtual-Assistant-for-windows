@@ -12,8 +12,8 @@
     <h1>Indigo</h1>
     <p class="center-object">Signup on Indigo to get the most of AI.</p>
     <div class="min-vh-100 justify-content-center align-items-center mt-5">
-        <form method="post" action='/otp/'>
-            {%csrf_token%}
+        <form method="post">
+            {% csrf_token %}
 
             <div class="form-group mb-3">
                 <label for="fname">Name</label>
@@ -36,10 +36,10 @@
                     placeholder="Comfirm password">
             </div>
 
-            <div id="emailHelp" class="form-text">Already have an account as Pistils? <a href='/login/'>Login now</a>
+            <div id="emailHelp" class="form-text">Already have an account as Indigo? <a href='/login/'>Login now</a>
             </div>
             <div class="form-group text-center mb-3">
-                <button type="submit" class="btn btn-primary" onclick="checkBasicAuthenticationRequirements()">Get OTP</button>
+                <button type="submit" class="btn btn-primary">Get OTP</button>
             </div>
         </form>
     </div>

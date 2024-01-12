@@ -8,5 +8,5 @@ urlpatterns = [
     path('newspage/', indian_news_page, name='News'),
     path('otp/', otp_page, name="OTP"),
     path('logout/', logoutt, name='Logout'),
-    path('otherdetails/', other_details, name='Other details')
+    path('locationform/', location_form, name='Other details')
 ]

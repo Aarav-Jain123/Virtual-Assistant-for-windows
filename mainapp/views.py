@@ -2,35 +2,38 @@ from django.shortcuts import render, redirect
 from . import locationdata, otherfuncs
 from django.contrib.auth import logout
 from .models import *
-
-# Basic Authentication
-name_of_user = None
-email_of_user = None
-password_of_user = None
-token = None
-check_user = None
-
-# After authentication
-pin_code = None
-city = None
-state = None
-country = None
+from django.contrib import messages
 
 
 def index(request):
-    if request.user.is_anonymous:
-        return redirect('signup/')
-    if request.method == 'POST':
-        otp = request.POST['otp']
-        otherfuncs.verify_user(request=request, name=name_of_user, username=email_of_user, password=password_of_user, otp=otp)
+    if request.user.is_anonymous: return redirect('signup/')
+    if request.user.is_anonymous and UserProfile.is_verified: return redirect('locationform/')
     return render(request, 'homeother/index.html')
 
 
 def loginn(request):
+    if not request.user.is_anonymous:
+        return redirect('/')
+    
+    if request.method == "POST":
+        email_of_user = request.POST['email']
+        password_of_user = request.POST['ppassword']
+        comfirm_password = request.POST['comfirm-password']
+        otherfuncs.basic_authentication_conditions(request, email_of_user, password_of_user, comfirm_password)
+        return redirect('/otp/')
+
     return render(request, 'authenticateuser/login.html')
 
 
 def signup(request):
+    if request.method == "POST":
+        name_of_user = request.POST['fname']
+        email_of_user = request.POST['email']
+        password_of_user = request.POST['ppassword']
+        comfirm_password = request.POST['comfirm-password']
+        otherfuncs.basic_authentication_conditions(request, name_of_user, email_of_user, password_of_user, comfirm_password)
+        return redirect('/otp/')
+
     if not request.user.is_anonymous:
         return redirect('/')
     return render(request, 'authenticateuser/signup.html')
@@ -50,23 +53,15 @@ def logoutt(request):
 
 
 def otp_page(request):
-    global name_of_user
-    global email_of_user
-    global password_of_user
-    global check_user
-    global token
-
     if not request.user.is_anonymous:
         return redirect('/')
-    if request.method == "POST":
-        name_of_user = request.POST['fname']
-        email_of_user = request.POST['email']
-        password_of_user = request.POST['ppassword']
-        comfirm_password = request.POST['comfirm-password']
-
-        otherfuncs.basic_authentication_conditions(request, name_of_user, email_of_user, password_of_user, comfirm_password)
     return render(request, 'authenticateuser/otp.html')
 
 
-def other_details(request):
-    return render(request, 'authenticateuser/otherdetails.html')
+def location_form(request):
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        otherfuncs.check_if_in_user_spreadsheet(request, otp)
+    if UserProfile.is_verified:
+        return redirect('/')
+    return render(request, 'authenticateuser/locationform.html')

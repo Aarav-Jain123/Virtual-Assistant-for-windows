@@ -6,24 +6,39 @@ from django.contrib import messages
 from random import randint
 from django.contrib.auth.models import User
 
-user = None
-token = None
+tokenn = None
+name_of_user = None
+email_of_user = None
+password_of_user = None
+comfirm_password = None
 
-def basic_authentication_conditions(request, name_of_user, email_of_user, password_of_user, comfirm_password):
-    global user
-    global token
 
-    if len(password_of_user) < 8:
-        messages.error(request, 'Password should be at least of 8 characters.')
-        return redirect('signup/')
-        
-    if password_of_user != comfirm_password:
-        messages.error(request, 'Password and comfirm password fields are not equal.')
-        return redirect('signup/')
+def basic_authentication_conditions(request, *credentialss):
+    global tokenn
+    global name_of_user
+    global email_of_user
+    global password_of_user
+    global comfirm_password
 
-    token = f'{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}'
-    send_otp(email_of_user, token)
-    verify_user(request, name_of_user, email_of_user, password_of_user, token)
+    try:
+        name_of_user, email_of_user, password_of_user, comfirm_password = credentialss
+    except Exception:
+        email_of_user, password_of_user, comfirm_password = credentialss
+    
+    try:
+        if len(password_of_user) < 8:
+            messages.error(request, 'Password should be at least of 8 characters.')
+            return redirect('/')
+            
+        elif password_of_user != comfirm_password:
+            messages.error(request, 'Password and comfirm password fields are not equal.')
+            return redirect('/')
+    except Exception:
+        messages.error(request, 'Please fill the form properly')
+        return redirect('/')
+    else:
+        tokenn = f'{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}'
+        send_otp(email_of_user, tokenn)
 
 
 def send_otp(email, token):
@@ -34,21 +49,19 @@ def send_otp(email, token):
     send_mail(subject, msg, from_email, recipients)
 
 
-def verify_user(request, name, username, password, otp):
-    global user
+def check_if_in_user_spreadsheet(request, otp):
 
-    if token == otp:
-
-
-        user = authenticate(username=username, password=password)
+    if tokenn == otp:
+        user = authenticate(username=email_of_user, password=password_of_user)
 
         if user is not None:
             login(request, user=user)
             return redirect('/')
         
         if user is None:
-            user = User.objects.create_user(username=username, email=username, password=password, first_name=name)
-            user.set_password(password)
+            user = User.objects.create_user(username=email_of_user, email=email_of_user, password=password_of_user, first_name=name_of_user)
+            user.set_password(password_of_user)
+            user.save()
             login(request, user)
             return redirect('/')
     else:

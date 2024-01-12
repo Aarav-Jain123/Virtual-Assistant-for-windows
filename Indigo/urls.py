@@ -25,5 +25,5 @@ urlpatterns = [
     path('newspage/', include('mainapp.urls')),
     path('otp/', include('mainapp.urls')),
     path('logout/', include('mainapp.urls')),
-    path('otherdetails', include('mainapp.urls'))
+    path('locationform/', include('mainapp.urls'))
 ]
