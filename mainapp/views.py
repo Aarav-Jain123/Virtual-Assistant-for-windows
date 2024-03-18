@@ -33,10 +33,11 @@ def loginn(request):
 
 def signup(request):
     if request.method == "POST":
-        name_of_user = request.POST['fname']
-        email_of_user = request.POST['email']
-        password_of_user = request.POST['ppassword']
-        comfirm_password = request.POST['comfirm-password']
+        name_of_user = request.POST.get('fname')
+        email_of_user = request.POST.get('email')
+        password_of_user = request.POST.get('ppassword')
+        comfirm_password = request.POST.get('comfirm-password')
+        print(name_of_user)
         otherfuncs.basic_authentication_conditions(request, name_of_user, email_of_user, password_of_user, comfirm_password)
         return redirect('/otp/')
 

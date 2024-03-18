@@ -32,9 +32,10 @@ def basic_authentication_conditions(request, *credentialss):
             messages.error(request, 'Password should be at least of 8 characters.')
             return redirect('/')
             
-        elif password_of_user != comfirm_password:
+        if password_of_user != comfirm_password:
             messages.error(request, 'Password and comfirm password fields are not equal.')
             return redirect('/')
+        
     except Exception:
         messages.error(request, 'Please fill the form properly')
         return redirect('/')
@@ -62,6 +63,7 @@ def check_if_in_user_spreadsheet(request, otp):
         user = authenticate(username=email_of_user, password=password_of_user)
 
         if user is not None:
+            messages.error(request, "Account already created!")
             return redirect('/')
         
         if user is None:
